@@ -37,8 +37,8 @@ def signup():
     print(f"Received email: {email}")
 
     # Sending the confirmation email
-    msg = Message('Welcome to Health Harvest', sender='kisanbazaar9@gmail.com', recipients=[email])
-    msg.body = f"Thank you for signing up, {email}! You are now registered with Health Harvest."
+    msg = Message('Welcome to Kisan Bazaar', sender='kisanbazaar9@gmail.com', recipients=[email])
+    msg.body = f"Thank you for signing up, {email}! You are now registered with Kisan Bazaar."
     mail.send(msg)
 
     session['signed_up'] = True
@@ -57,7 +57,7 @@ def submit_query():
         return redirect(url_for('home'))
 
     # Sending the contact form email
-    msg = Message('New Order Query', sender=email, recipients='kisanbazaar9@gmail.com')
+    msg = Message('New Order Query', sender=email, recipients=['kisanbazaar9@gmail.com'])
     msg.body = f"New query received from {name} ({email}):\n\n{query}"
     mail.send(msg)
 
