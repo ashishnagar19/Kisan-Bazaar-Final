@@ -65,5 +65,8 @@ def submit_query():
     return redirect(url_for('home'))
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = 5000  # Set the fixed port number here
+    app.run(host='0.0.0.0', port=port)
+
+
