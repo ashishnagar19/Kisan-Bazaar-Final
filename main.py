@@ -1,20 +1,17 @@
-import os
-from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_mail import Mail, Message
 
-load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY')  # Replace with your own secret key
+app.secret_key = 'KISanBazaar212213@&@'  # Replace with your own secret key
 
 # Configuring Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # e.g., smtp.gmail.com
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_USERNAME'] = 'kisanbazaar9@gmail.com'
+app.config['MAIL_PASSWORD'] = 'hwdr ybgw rbcw zppe'
 
 mail = Mail(app)
 
@@ -40,7 +37,7 @@ def signup():
     print(f"Received email: {email}")
 
     # Sending the confirmation email
-    msg = Message('Welcome to Health Harvest', sender=os.getenv('MAIL_USERNAME'), recipients=[email])
+    msg = Message('Welcome to Health Harvest', sender='kisanbazaar9@gmail.com', recipients=[email])
     msg.body = f"Thank you for signing up, {email}! You are now registered with Health Harvest."
     mail.send(msg)
 
@@ -60,7 +57,7 @@ def submit_query():
         return redirect(url_for('home'))
 
     # Sending the contact form email
-    msg = Message('New Order Query', sender='kisanbazaar@gmail.com', recipients=[os.getenv('MAIL_USERNAME')])
+    msg = Message('New Order Query', sender=email, recipients='kisanbazaar9@gmail.com')
     msg.body = f"New query received from {name} ({email}):\n\n{query}"
     mail.send(msg)
 
