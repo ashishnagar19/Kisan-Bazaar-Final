@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Bazaar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+
+            <ul class="desktop-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#ourmission">Our Mission</a></li>
+                <li><a href="#organic">Why Organic</a></li>
+                <li id="title">Kisan Bazaar</li>
+                <li><a href="#ourproducts">Our Products</a></li>
+                <li><a href="#Contact">Get In Touch</a></li>
+                <li><a href="#footer">Contact Us</a></li>
+                </ul>
+        </nav>
+
+        <nav class="mobile-nav">
+          <div class="nav-title">
+              <span id="mobile-title">Kisan Bazaar</span>
+              <button id="menu-toggle" aria-label="Menu">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+              </button>
+          </div>
+          <ul id="mobile-nav-list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#ourmission">Our Mission</a></li>
+              <li><a href="#organic">Why Organic</a></li>
+              <li><a href="#ourproducts">Our Products</a></li>
+              <li><a href="#Contact">Get In Touch</a></li>
+              <li><a href="#footer">Contact Us</a></li>
+          </ul>
+      </nav>
+    </header>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+          var navList = document.getElementById('mobile-nav-list');
+          navList.classList.toggle('active');
+        });
+    </script>
+
+    <main>
+        <section class="content">
+          <img src="/static/1.png" class="border">
+            <div class="left-section golden4">
+                <h2 style="font-size: 1.3em; line-height: 1; padding-top: 5%;">FRESH. ORGANIC. HEALTHY.</h2>
+                <h2 class="content-health">Welcome to the</h2>
+                <h2 class="content-healthd">Future of Healthy</h2>
+                <h2 class="content-healthd-separate">Future of</h2>
+                <h2 class="content-healthd-separate">Healthy</h2>
+                <h2 class="content-health">Eating</h2>
+                <p style="font-size: 1.5em; line-height: 1.5;">Organic, nutritious food,<br> powered by the intersection of biotech and agriculture,<br> delivered right to your doorstep.</p>
+                {% if not signed_up %}
+                <form action="/signup" method="post">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" class="email-input" required>
+                    <button class="fifth">Log In</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="right-section">
+                <img src="/static/iStock-870915532-1-scaled.jpg" alt="Fresh Produce">
+            </div>
+        </section>
+
+<!--this is a new section for our story-->
+
+        <section id="ourmission" class="our-story golden5">
+            <div>
+                <h2>Our Mission</h2>
+                <p>"Kishan Bazar was founded with a simple yet 'powerful vision' to support local farmers and provide consumers with access to fresh, healthy, and sustainably-grown food."<br> "We believe in the power of community and the importance of knowing,"<br> "Where your food comes from, By connecting farmers directly with consumers, we aim to create a transparent, efficient, and fair marketplace."</p>
+                <img src="/static/2repla.png" class="story_design_2" >
+            </div>
+        </section>
+
+
+        <section   id="organic" class="why-go-organic">
+          <img src="/static/output.png" class="border">
+            <div class="container">
+
+              <h2 class="golden">Why Go Organic?</h2>
+              <p class="golden">"Discover the remarkable advantages of opting for organic food, benefiting both your health and the planet."</p>
+              <div class="benefits">
+                <div class="benefit">
+                  <img src="/static/antioxidants.jpg" alt="Antioxidant Capacity">
+                  <h3>Antioxidant Capacity</h3>
+                  <p>"Organic foods are known to have higher antioxidant levels. These antioxidants help combat harmful free radicals in your body, promoting overall wellness and reducing the risk of chronic diseases."</p>
+                </div>
+                <div class="benefit">
+                  <img src="/static/pesticide reduction.jpg" alt="Pesticide Reduction">
+                  <h3>Pesticide Reduction</h3>
+                  <p>"Choosing organic means fewer pesticides. Organic farming practices limit the use of synthetic pesticides, ensuring that the food you consume is safer and cleaner."</p>
+                </div>
+                <div class="benefit">
+                  <img src="/static/heart health.jpg" alt="Heart Health">
+                  <h3>Heart Health</h3>
+                  <p>"Organic diets have been linked to improved heart health. By reducing exposure to harmful chemicals and increasing the intake of nutrient-rich foods, organic choices support a healthy cardiovascular system."</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+
+<!--this is a new section for our story-->
+        <!-- Product Section -->
+        <section id=ourproducts class="products">
+          <img src="od.png" class="border">
+
+            <h2 class="golden" style="line-height: 1;">Our Products</h2>
+            <p class="product_text golden" style="font-size: 1.5em; line-height: 1;">Experience Our Bounty</p>
+            <p  class="product_text golden" style="font-size: 1.3em; line-height: 1;">Explore our variety of nutritious, organic foods – as fresh as it gets!</p>
+
+            <div class="product-grid">
+              <!-- Product 2 -->
+              <div class="product">
+                <img src="/static/VEGETABLE.jpg" alt="Vegetable Set">
+                <h3>Vegetable Set</h3>
+
+                <p class="price">100 ₹</p>
+                <button class="order_button" onclick="openModal()">Contact to Make An Order</button>
+              </div>
+              <!-- Product 3 -->
+              <div class="product">
+                <img src="/static/FRITS+VEGETABLE.jpg" alt="Mixed Set">
+                <h3>Mixed Set</h3>
+                <p class="price">1000 ₹</p>
+                <button class="order_button" onclick="openModal()">Contact to Make An Order</button>
+              </div>
+              <!-- Product 4 -->
+              <div class="product">
+                <img src="/static/FRUITS.JPG" alt="Fruit Set">
+                <h3>Fruit Set</h3>
+
+                <p class="price">400 ₹</p>
+                <button class="order_button" onclick="openModal()">Contact to Make An Order</button>
+              </div>
+            </div>
+          </section>
+
+        <div id="Contact" class="contact-section">
+          <img src="/static/on.png" class="border">
+            <div class="contact-text golden3">
+                <h4>READY TO EAT CLEAN?</h4>
+                <h2>Get in Touch</h2>
+                <p>Have more questions or suggestions?<br><br><i> "We'd love to hear from you."</i></p>
+                <button class="order_button" onclick="openModal()">Contact Us</button>
+            </div>
+
+            <div class="contact-image">
+                <img src="/static/contact.jpg" alt="Get in touch">
+            </div>
+        </div>
+
+        <footer>
+
+          <div id="footer" class="footer-content">
+
+            <p class="email">Contact us :  <a href="mailto:kisanbazaar9@gmail.com">kisanbazaar9@gmail.com</a></p>
+              <div class="social-icons">
+                  <a href="#footer" class="social-icon"><img src="/static/facebook.png"></a>
+                  <a href="#footer" class="social-icon"><img src="/static/linkedin.png"></a>
+                  <a href="#footer" class="social-icon"><img src="/static/twitter.png"></a>
+                  <a href="#footer" class="social-icon"><img src="/static/instagram.png"></a>
+                  <!-- Add more icons as needed -->
+              </div>
+
+          </div>
+      </footer>
+
+        <div id="overlay" class="overlay"></div>
+            <div id="orderModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <h2>Contact Us</h2>
+                    <form action="/submit-query" method="post">
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="mail" name="email" required>
+                        <label for="query">Query:</label>
+                        <textarea id="query" name="query" rows="4" required></textarea>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        <script>
+        function openModal() {
+            document.getElementById('orderModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            document.getElementById('overlay').style.display = 'block'
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.getElementById('overlay').style.display = 'none'
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('orderModal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+
+    </main>
+</body>
+</html>
