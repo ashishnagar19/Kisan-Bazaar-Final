@@ -935,6 +935,10 @@ footer {
      
   }
 
+  .fix1{
+    line-height:2;
+  }
+  
   .product-grid {
       grid-template-columns: 1fr;
   }
